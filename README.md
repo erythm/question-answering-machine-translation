@@ -1,30 +1,68 @@
-# question-answering-machine-translation
+1. Multilingual ASKQE
+Extend the framework to multiple languages (source/target, questions, answers, etc.).
 
-**General Questions**
 
-* Does using smaller LLMs count as an extension?
+2. Multi-turn / conversational QA
+Support for:
 
----
+follow-up questions,
 
-## **Proposed Extensions**
+recursive questioning,
 
-1. Multilingual ASKQE.
-2. Multi-turn QA (follow-up questions, recursive questioning, conversational QA).
-3. Domain adaptation (legal, travel/tourism, etc.).
-4. Replace or improve the answer-overlap metric.
-5. Data enrichment techniques (NER swaps, negations, numeric perturbations, pronoun switches)——>Then measure ASKQE’s ability to detect them.
-6. Ablation study (remove NLI filtering, remove back-translation, remove fact extraction, QG without atomic facts) —>Measure impact on performance.
+dialogue/conversational QA to clarify or refine answers.
 
----
 
-## **Proposed Extensions**
 
-1. **Binary question generation** to remove the need for back-translation.
-2. **Domain extension** to additional knowledge areas.
-3. **Error localization**:
+3. Domain adaptation / domain extension
+Adapt ASKQE to specific domains (e.g., legal, travel/tourism) and additional specialized knowledge areas.
 
-   * Adaptive question generation (ask more targeted questions to locate the error).
-   * Post-editing using LLMs to correct wrong answers.
-   * Explain to the user where the mistake is.
-4. **Improved similarity metrics** between (A_{\text{srs}}) and (A_{\text{target}}).
-5. **Improved contraTICO** 
+
+4. Data enrichment & robustness testing
+Apply controlled transformations to the data to test ASKQE’s sensitivity, e.g.:
+
+NER swaps (named entity swapping),
+
+negations,
+
+numeric perturbations,
+
+pronoun switches, etc.,
+and measure the system’s ability to detect them.
+
+
+
+5. Improved similarity metrics (replacement of answer-overlap)
+Replace or enhance the current answer-overlap metric with richer similarity metrics between  and .
+
+
+6. Binary question generation (yes/no)
+Generate binary questions to reduce or eliminate the need for back-translation in evaluation.
+
+
+7. Ablation study of the ASKQE pipeline
+Systematically remove components and measure their impact on performance, e.g.:
+
+remove NLI filtering,
+
+remove back-translation,
+
+remove fact extraction,
+
+perform QG without atomic facts.
+
+
+
+8. Error localization & assisted post-editing
+
+Adaptive question generation: ask targeted questions to better localize errors.
+
+LLM-based post-editing: use LLMs to propose corrections to wrong answers.
+
+User-facing explanations: explain to the user where and why the error occurs.
+
+
+
+9. Improved contraTICO
+Improve the contraTICO component/benchmark (e.g., coverage of phenomena, balance, translation/contradiction quality, etc.).
+
+
